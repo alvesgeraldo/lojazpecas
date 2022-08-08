@@ -8,9 +8,8 @@
 <body>
   
   <?php require 'menu.php'; ?>
-  
-  <h1 class="display-4">Sistema Z Peças</h1>
 
+  <h1>Categorias Produtos</h1>
 
 </body>
 </html>

@@ -14,7 +14,7 @@
             Cadastros
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Categorias</a></li>
+            <li><a class="dropdown-item" href="../sistema/categoria-produto.php">Categorias</a></li>
             <li><a class="dropdown-item" href="#">Marcas</a></li>
             <li><a class="dropdown-item" href="#">Produtos</a></li>
           </ul>
