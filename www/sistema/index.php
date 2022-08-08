@@ -11,6 +11,7 @@
   
   <h1 class="display-4">Sistema Z Peças</h1>
 
+  <?php require '../../sistema-private/script.php'; ?>
 
 </body>
 </html>
