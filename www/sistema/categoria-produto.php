@@ -33,6 +33,46 @@
     <div class="my-2">
         <a class="btn btn-success" href="#">Adicionar</a>
     </div>
+    <div class="container p-3 rounded bg-secondary">
+      <div class="bg-light m-3">
+        <table class="table">
+          <thead class="bg-dark text-light">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Status</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Pneus</td>
+              <td>Ativo</td>
+              <td>Editar - Excluir</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Camara de Ar</td>
+              <td>Ativo</td>
+              <td>Editar - Excluir</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Transmissão</td>
+              <td>Ativo</td>
+              <td>Editar - Excluir</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Câmbio</td>
+              <td>Ativo</td>
+              <td>Editar - Excluir</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
 </body>
