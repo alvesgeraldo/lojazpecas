@@ -1,4 +1,9 @@
-.borda-container {
-  border-left: 2px solid #1e1e1ea2;
-  border-right: 2px solid #1e1e1ea2;
+#overlay-adicionar{
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
