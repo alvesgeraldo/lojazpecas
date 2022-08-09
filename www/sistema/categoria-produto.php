@@ -1,3 +1,10 @@
+<?php
+
+  $acao = 'recuperar';
+  require 'script-categoria.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -82,42 +89,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pneus</td>
-              <td>Ativo</td>
-              <td>
-                <a class="btn btn-outline-success" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a class="btn btn-outline-danger" href="#"><i class="fa-solid fa-trash"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Camara de Ar</td>
-              <td>Ativo</td>
-              <td>
-                <a class="btn btn-outline-success" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a class="btn btn-outline-danger" href="#"><i class="fa-solid fa-trash"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Transmissão</td>
-              <td>Ativo</td>
-              <td>
-                <a class="btn btn-outline-success" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a class="btn btn-outline-danger" href="#"><i class="fa-solid fa-trash"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Câmbio</td>
-              <td>Ativo</td>
-              <td>
-                <a class="btn btn-outline-success" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a class="btn btn-outline-danger" href="#"><i class="fa-solid fa-trash"></i></a>
-              </td>
-            </tr>
+
+            <?php foreach ($categorias as $key => $categoria) { ?>
+              <tr>
+                <th scope="row"><?= $categoria['id_categoria'] ?></th>
+                <td><?= $categoria['nome_categoria'] ?></td>
+                <td><?php 
+                  if($categoria['status_categoria'] == 1){
+                    echo 'Ativo';
+                  } elseif ($categoria['status_categoria'] == 2){
+                    echo 'Inativo';
+                  }
+                ?></td>
+                <td>
+                  <a class="btn btn-outline-success" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a class="btn btn-outline-danger" href="#"><i class="fa-solid fa-trash"></i></a>
+                </td>
+              </tr>
+            <?php } ?>
+
           </tbody>
         </table>
       </div>

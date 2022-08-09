@@ -1,5 +1,5 @@
 <?php
 
-  require '../../sistema-private/script-categoria.php';
+  require '../../sistema-private/categoria/script-categoria.php';
 
 ?>
