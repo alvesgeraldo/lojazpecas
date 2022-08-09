@@ -23,7 +23,7 @@
     <!-- Div form busca -->
     <div class="container p-4 rounded bg-secondary">
       <h5 class="text-light">Filtro de busca</h5>  
-      <form action="script-categoria.php" method="post">
+      <form action="script-categoria.php?acao=buscaCategoria" method="post">
         <div class="row text-light">
           <div class="col-8">
             <label for="nome" class="form-label">Nome Categoria</label>
