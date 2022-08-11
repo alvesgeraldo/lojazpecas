@@ -51,9 +51,18 @@
       $categoria->__set('status_categoria', $_POST['status-categoria']);
 
       $categoriaService = new CategoriaService($conexao, $categoria);
-      $categorias = $categoriaService->cadastrar();
+      $categorias = $categoriaService->buscaCategoria();
+      
+      $newCategoria = $_POST['nome-categoria'];
 
-      header('location: categoria-produto.php?res=success');
+      if(strtolower($newCategoria) == strtolower($categorias[0]['nome_categoria'])){
+        header('location: categoria-produto.php?res=error-2');
+      } else {
+        $categoriaService->cadastrar();
+
+        header('location: categoria-produto.php?res=success');
+      }
+      
     }
     
   } elseif ($acao == 'atualizar') {

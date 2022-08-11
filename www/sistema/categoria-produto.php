@@ -5,11 +5,13 @@
   require 'script-categoria.php';
 
   if (isset($_GET['res']) && $_GET['res'] == 'success') {
-    $msg = '<span class="text-success">Categoria cadastrada com sucesso!</span>';
+    $msg = '<span class="text-light bg-success p-2 rounded">Categoria cadastrada com sucesso!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'error') {
-    $msg = '<span class="text-danger">Erro! Tente novamente preenchendo todos os campos!</span>';
+    $msg = '<span class="text-light bg-danger p-2 rounded">Erro! Tente novamente preenchendo todos os campos!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'edit'){
-    $msg = '<span class="text-success">Categoria editada com sucesso!</span>';
+    $msg = '<span class="text-light bg-success p-2 rounded">Categoria editada com sucesso!</span>';
+  } elseif (isset($_GET['res']) && $_GET['res'] == 'error-2') {
+    $msg = '<span class="text-dark bg-warning p-2 rounded">Categoria já cadastrada!</span>';
   }
 
 ?>
