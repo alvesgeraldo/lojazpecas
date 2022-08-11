@@ -3,6 +3,13 @@
   $acao = 'recuperar';
   require 'script-categoria.php';
 
+  $msg;
+  if (isset($_GET['res']) && $_GET['res'] == 'success') {
+    $msg = '<span class="text-success">Categoria cadastrada com sucesso!</span>';
+  } elseif (isset($_GET['res']) && $_GET['res'] == 'error') {
+    $msg = '<span class="text-danger">Erro! Tente novamente preenchendo todos os campos!</span>';
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +52,7 @@
     <!-- Botão adicionar -->
     <div class="my-2">
         <a class="btn btn-success" onclick="on()">Adicionar</a>
+        <div><?= $msg ?></div>
     </div>
 
     <!-- Div overlay adicionar categorias -->
@@ -53,7 +61,7 @@
       <div class="container bg-secondary text-light rounded p-5 mt-5">
         <div>
           <h5>Cadastrar nova categoria</h5>
-          <form action="script-categoria.php" method="post">
+          <form action="script-categoria.php?acao=cadastrar" method="post">
             <div class="row">
               <div class="col-8">
                 <label for="nome" class="form-label">Nome Categoria</label>

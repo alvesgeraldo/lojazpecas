@@ -10,8 +10,16 @@
       $this->categoria = $categoria;
     }
 
-    public function cadastar(){
+    public function cadastrar(){
 
+      $query = 'insert into
+               tb_categorias (nome_categoria, status_categoria) 
+               values (?, ?);';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
+      $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
+      $stmt->execute();
+      
     }
 
     public function recuperar(){

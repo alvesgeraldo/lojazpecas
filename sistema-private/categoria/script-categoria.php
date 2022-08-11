@@ -6,7 +6,7 @@
 
   $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
-  echo $acao;
+  // echo $acao;
   
   if($acao == 'recuperar'){
 
@@ -27,12 +27,23 @@
     $categoriaService = new CategoriaService($conexao, $categoria);
     $filtrocategorias = $categoriaService->buscaCategoria();
 
-    echo '<pre>';
-    print_r($filtrocategorias);
-    echo '</pre>';
+  } elseif ($acao == 'cadastrar'){
 
-    // header('location: categoria-produto.php');
+    if($_POST['nome-categoria'] == '' || $_POST['status-categoria'] == ''){
+      header('location: categoria-produto.php?res=error');
+    } else {
+      $categoria = new Categoria();
+      $conexao = new Conexao();
 
+      $categoria->__set('nome_categoria', $_POST['nome-categoria']);
+      $categoria->__set('status_categoria', $_POST['status-categoria']);
+
+      $categoriaService = new CategoriaService($conexao, $categoria);
+      $categorias = $categoriaService->cadastrar();
+
+      header('location: categoria-produto.php?res=success');
+    }
+    
   }
 
 
