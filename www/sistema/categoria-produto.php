@@ -1,6 +1,11 @@
 <?php
 
-  $acao = 'recuperar';
+  if(isset($_GET['acao']) && $_GET['acao'] == 'buscaCategoria'){
+    $acao = $_GET['acao'];
+  } else {
+    $acao = 'recuperar';
+  }
+  
   require 'script-categoria.php';
 
   $msg;
@@ -30,7 +35,7 @@
     <!-- Div form busca -->
     <div class="container p-4 rounded bg-secondary">
       <h5 class="text-light">Filtro de busca</h5>  
-      <form action="script-categoria.php?acao=buscaCategoria" method="post">
+      <form action="categoria-produto.php?acao=buscaCategoria" method="post">
         <div class="row text-light">
           <div class="col-8">
             <label for="nome" class="form-label">Nome Categoria</label>
@@ -46,6 +51,7 @@
         </div>
         <div class="mt-2">
           <button class="btn btn-primary" type="submit">Buscar</button>
+          <a href="categoria-produto.php" class="btn btn-light">Limpar</a>
         </div>
       </form>
     </div>

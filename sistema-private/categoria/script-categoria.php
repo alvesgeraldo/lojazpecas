@@ -18,15 +18,27 @@
     
   } elseif ($acao == 'buscaCategoria'){
 
-    $categoria = new Categoria();
-    $conexao = new Conexao();
+    if($_POST['nome-categoria'] == ''){
+      
+      $categoria = new Categoria();
+      $conexao = new Conexao();
 
-    $categoria->__set('nome_categoria', $_POST['nome-categoria']);
-    $categoria->__set('status_categoria', $_POST['status-categoria']);
+      $categoria->__set('status_categoria', $_POST['status-categoria']);
 
-    $categoriaService = new CategoriaService($conexao, $categoria);
-    $filtrocategorias = $categoriaService->buscaCategoria();
+      $categoriaService = new CategoriaService($conexao, $categoria);
+      $categorias = $categoriaService->buscaCategoria();
 
+    } else {
+      $categoria = new Categoria();
+      $conexao = new Conexao();
+
+      $categoria->__set('nome_categoria', $_POST['nome-categoria']);
+      $categoria->__set('status_categoria', $_POST['status-categoria']);
+
+      $categoriaService = new CategoriaService($conexao, $categoria);
+      $categorias = $categoriaService->buscaCategoria();
+    }
+    
   } elseif ($acao == 'cadastrar'){
 
     if($_POST['nome-categoria'] == '' || $_POST['status-categoria'] == ''){

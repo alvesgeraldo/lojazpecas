@@ -43,15 +43,26 @@
 
     public function buscaCategoria(){
 
-      $query = 'select 
+      if($this->categoria->__get('nome_categoria') == ''){
+        $query = 'select 
                 id_categoria, nome_categoria, status_categoria 
                 from tb_categorias 
-                where nome_categoria = ? and status_categoria = ?;';
-      $stmt = $this->conexao->prepare($query);
-      $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
-      $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
-      $stmt->execute();
-      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                where status_categoria = ?;';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(1, $this->categoria->__get('status_categoria'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+      } else {
+        $query = 'select 
+                  id_categoria, nome_categoria, status_categoria 
+                  from tb_categorias 
+                  where nome_categoria = ? and status_categoria = ?;';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
+        $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+      }
       
     }
 
