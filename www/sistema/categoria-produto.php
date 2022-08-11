@@ -15,6 +15,8 @@
     $msg = '<span class="text-danger">Erro! Tente novamente preenchendo todos os campos!</span>';
   }
 
+  print_r($categorias);
+
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +108,7 @@
 
             <?php foreach ($categorias as $key => $categoria) { ?>
               <tr>
-                <th scope="row"><?= $categoria['id_categoria'] ?></th>
+                <th scope="row" id="categoria_<?=$categoria['id_categoria']?>"><?= $categoria['id_categoria'] ?></th>
                 <td><?= $categoria['nome_categoria'] ?></td>
                 <td><?php 
                   if($categoria['status_categoria'] == 1){
