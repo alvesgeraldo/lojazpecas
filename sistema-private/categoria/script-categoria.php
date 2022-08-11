@@ -56,6 +56,20 @@
       header('location: categoria-produto.php?res=success');
     }
     
+  } elseif ($acao == 'atualizar') {
+    
+    $categoria = new Categoria();
+    $conexao = new Conexao();
+
+    $categoria->__set('status_categoria', $_POST['status-categoria']);
+    $categoria->__set('nome_categoria', $_POST['nome-categoria']);
+    $categoria->__set('id_categoria', $_POST['id-categoria']);
+
+    $categoriaService = new CategoriaService($conexao, $categoria);
+    $categoriaService->atualizar();
+
+    header('location: categoria-produto.php?res=edit');
+
   }
 
 

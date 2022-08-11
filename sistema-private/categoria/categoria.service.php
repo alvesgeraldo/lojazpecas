@@ -35,6 +35,16 @@
 
     public function atualizar(){
 
+      $query = 'update
+                tb_categorias SET 
+                nome_categoria=?, status_categoria=? 
+                WHERE id_categoria=?;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
+      $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
+      $stmt->bindValue(3, $this->categoria->__get('id_categoria'));
+      $stmt->execute();
+      
     }
 
     public function remover(){
