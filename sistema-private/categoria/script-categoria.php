@@ -14,7 +14,14 @@
     $conexao = new Conexao();
 
     $categoriaService = new CategoriaService($conexao, $categoria);
-    $categorias = $categoriaService->recuperar();
+
+    $totalRegistros = $categoriaService->totalRegistros();
+    $totalPaginas = ceil($totalRegistros[0]['total']/5);
+    $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+    $limit = 5;
+    $offset = ($pagina - 1) * $limit;
+
+    $categorias = $categoriaService->recuperar($limit, $offset);
     
   } elseif ($acao == 'buscaCategoria'){
 

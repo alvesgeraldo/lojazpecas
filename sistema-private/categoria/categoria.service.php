@@ -22,16 +22,17 @@
       
     }
 
-    public function recuperar(){
+    public function recuperar($limit, $offset){
       
-      $query = 'select 
+      $query = "select 
                 id_categoria, nome_categoria, status_categoria 
                 from tb_categorias
-                order by nome_categoria asc;';
+                order by nome_categoria asc
+                limit $limit offset $offset;";
       $stmt = $this->conexao->prepare($query);
-      $stmt->execute();
+      $stmt->execute();        
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
-      
+    
     }
 
     public function atualizar(){
@@ -83,6 +84,18 @@
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
       
+    }
+
+    public function totalRegistros(){
+
+      $query = 'select 
+                count(*) as total 
+                from tb_categorias
+                order by nome_categoria asc;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     }
 
   }

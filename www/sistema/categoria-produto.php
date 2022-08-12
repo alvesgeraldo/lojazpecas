@@ -127,6 +127,25 @@
           </tbody>
         </table>
       </div>
+      <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="?pagina=1" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <?php for ($i=1; $i <= $totalPaginas; $i++) { ?>
+              <li class="page-item <?= $pagina == $i ? 'active' : ''; ?>"><a class="page-link" href="?pagina=<?=$i?>"><?= $i ?></a></li>
+            <?php } ?>
+            <li class="page-item">
+              <a class="page-link" href="?pagina=<?=$totalPaginas?>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 
