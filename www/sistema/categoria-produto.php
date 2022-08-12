@@ -31,19 +31,19 @@
   <?php require 'menu.php'; ?>
 
   <!-- Div principal -->
-  <div class="container px-5 border-start border-end">
+  <div class="container  border-start border-end">
     <!-- Título -->
-    <h2 class="py-3">Cadastro Categorias</h2>
+    <h2 class="py-2">Cadastro Categorias</h2>
     <!-- Div form busca -->
-    <div class="container p-4 rounded bg-secondary">
+    <div class="container p-2 rounded bg-secondary">
       <h5 class="text-light">Filtro de busca</h5>  
       <form action="categoria-produto.php?acao=buscaCategoria" method="post">
         <div class="row text-light">
-          <div class="col-8">
+          <div class="col-md-8">
             <label for="nome" class="form-label">Nome Categoria</label>
             <input class="form-control" type="text" name="nome-categoria" id="nome">
           </div>
-          <div class="col-4">
+          <div class="col-md-4">
             <label for="status" class="form-label">Status</label>
             <select class="form-select" name="status-categoria">
               <option value="1">Ativo</option>
@@ -59,23 +59,23 @@
     </div>
     <!-- Botão adicionar -->
     <div class="my-2">
-        <a class="btn btn-success" onclick="on()">Adicionar</a>
-        <div class="d-inline ms-3"><strong><?= $msg ?></strong></div>
+        <a class="btn btn-success me-3 mb-2" onclick="on()">Adicionar</a>
+        <div class="d-md-inline text-center"><strong><?= $msg ?></strong></div>
     </div>
 
     <!-- Div overlay adicionar categorias -->
 
     <div id="overlay-adicionar">
-      <div class="container bg-secondary text-light rounded p-5 mt-5">
+      <div class="container bg-secondary text-light rounded p-2 mt-5">
         <div>
           <h5 id="titulo">Cadastrar nova categoria</h5>
           <form id="form-categoria" action="script-categoria.php?acao=cadastrar" method="post">
             <div class="row">
-              <div class="col-8">
+              <div class="col-md-8">
                 <label for="nome" class="form-label">Nome Categoria</label>
                 <input class="form-control" type="text" name="nome-categoria" id="nome-cadastro">
               </div>
-              <div class="col-4">
+              <div class="col-md-4">
                 <label for="status" class="form-label">Status</label>
                 <select id="status" class="form-select" name="status-categoria">
                   <option value="1">Ativo</option>
@@ -93,8 +93,8 @@
     </div>
 
     <!-- Div table lista -->
-    <div class="container p-3 rounded bg-secondary">
-      <div class="bg-light m-3">
+    <div class="container pt-1 mb-2 rounded bg-secondary">
+      <div class="bg-light my-1 table-responsive">
         <table class="table">
           <thead class="bg-dark text-light">
             <tr>
@@ -118,7 +118,7 @@
                   }
                 ?></td>
                 <td>
-                  <button class="btn btn-outline-success" onclick="editarCategoria(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>')"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn btn-outline-success my-1" onclick="editarCategoria(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>')"><i class="fa-solid fa-pen-to-square"></i></button>
                   <button class="btn btn-outline-danger" onclick="excluirCategoria(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>')"><i class="fa-solid fa-trash"></i></button>
                 </td>
               </tr>
