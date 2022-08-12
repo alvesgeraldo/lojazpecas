@@ -31,3 +31,15 @@ function editarCategoria(id, valueCategoria){
   console.log(valueCategoria);
 
 }
+
+function excluirCategoria(id, valueCategoria){
+
+  let res = confirm('Deseja excluir a categoria '+valueCategoria+'?');
+  
+  if (res) {
+
+    location.href = 'script-categoria.php?acao=remover&id='+id;
+    
+  }
+
+}

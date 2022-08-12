@@ -79,6 +79,17 @@
 
     header('location: categoria-produto.php?res=edit');
 
+  } elseif ($acao == 'remover'){
+
+    $categoria = new Categoria();
+    $conexao = new Conexao();
+
+    $categoria->__set('id_categoria', $_GET['id']);
+    
+    $categoriaService = new CategoriaService($conexao, $categoria);
+    $categoriaService->remover();
+
+    header('location: categoria-produto.php?res=del');
   }
 
 

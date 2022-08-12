@@ -1,12 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Z Peças</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Link CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Link Fontawesome -->
+    <script src="https://kit.fontawesome.com/3ca0835c19.js" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <title>Loja Z Peças</title>
+
 </head>
 <body>
-  <h1>Site Z Peças</h1>
+
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo-zpecas.png" alt="Logo da Loja Z Peças" width="140" >
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mr-auto" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#quem-somos">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#produtos">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                      </li>
+                  </ul>
+                </div>
+              </nav>
+        </div>
+        <div class="container-fluid gradient">
+            <div class="container d-flex">
+                <div class="row">
+                    <div class="col-lg-6 flex-column align-self-center capa">
+                        <h1>Loja Z Peças</h1>
+                        <p>Você e sua bike sempre prontos para uma nova aventura!</p>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <img class="img-capa" src="img/homem-capa.png" alt="Homem com acessórios de proteção, capacete, óculos, luvas, joelheiras, cotoveleiras, montado em sua bicicleta.">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="quem-somos" class="secoes container">
+        <div class="container">
+            <h2>Quem Somos</h2>
+        </div>
+        <div class="container d-flex mt-3">
+            <div class="row">
+                <div class="col-lg-6 img-fluid">
+                    <img src="img/servicos.jpg" alt="" width="500">
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <p>A loja Z Peças iniciou seus serviços em Março de 2010. Seu proprietário José Valmir já atuava na área de peças e serviços em bicicletas.</p>
+                    <p>Na Z Peças você vai encontrar tudo para sua bike. Peças das melhores marcas e excelente qualidade para você fazer uma compra tranquila. Dispomos de vários acessórios para sua bike e também para você ciclista.</p>
+                    <p>Nós da Z Peças buscamos oferecer aos nossos clientes atendimento de qualidade, produtos com excelente preço e qualidade, serviços com profissionais qualificados. Tudo quem você e sua bike precisam para estar sempre prontos para uma nova aventura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" class="secoes container">
+        <div class="container">
+            <h2>Produtos</h2>
+        </div>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-4">
+                  <img class="rounded-circle mb-2" src="img/produtos-transmicao.jpg" alt="Peças de transmissão para bicicletas" width="250" height="250">
+                  <h3>Peças</h3>
+                  <p>Todo tipo de peças que você procura para sua bike. Trabalhamos com as melhores marcas, sempre oferecendo a você cliente variedade e preço baixo.</p>
+                </div>
+                <div class="col-lg-4">
+                    <img class="rounded-circle mb-2" src="img/produtos-acessorios.jpg" alt="Acessórios para o ciclista e para bicicletas" width="250" height="250">
+                    <h3>Acessórios</h3>
+                    <p>Nós trabalhamos com com vários acessórios para sua bike. Todos selecionados para oferecer produtos com melhor qualidade e seguranças para nossos clientes.</p>
+                </div>
+                <div class="col-lg-4">
+                    <img class="rounded-circle mb-2" src="img/produtos-bicicletas.jpg" alt="Peças de transmissão para bicicletas" width="250" height="250">
+                    <h3>Bikes Seminovas</h3>
+                    <p>Também trabalhamos com venda de bicicletas seminovas, masculinas, femininas e infantil. Consulte-nos e vamos encontrar a bike que você procura.</p>
+                </div>
+              </div>
+              <a class="btn btn-primary botoes" href="https://api.whatsapp.com/send?phone=5581993031802&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento..." target="_blank" role="button">Solicite um orçamento</a>
+        </div>
+    </section>
+
+    <section id="servicos" class="secoes container">
+        <div class="container">
+            <h2>Serviços</h2>
+        </div>
+        <div class="container">
+            <div class="row mobile">
+                <div class="col-md-6">
+                    <img class="img-fluid" src="img/servicos.jpg" alt="" width="500">
+                </div>
+                <div class="col-md-6">
+                    <h3>Dispomos dos seguintes serviços para sua bike:</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Montagem</li>
+                        <li class="list-group-item">Lubrificação</li>
+                        <li class="list-group-item">Troca de peças</li>
+                        <li class="list-group-item">Trocas de pneus</li>
+                    </ul>
+                    <a class="btn btn-primary botoes" href="https://api.whatsapp.com/send?phone=5581993031802&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20servi%C3%A7o..." target="_blank" role="button">Agendar um serviço</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contato" class="secoes container">
+        <div class="container">
+            <h2>Contato</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box-contatos">
+                        <h4>Telefone</h4>
+                        <p><i class="fas fa-phone mr-1 i-color"></i>(81) 99303-1802</p>
+                    </div>
+                    <div class="box-contatos">
+                        <h4>Endereço</h4>
+                        <p><i class="fas fa-globe-americas mr-1 i-color"></i>Rua Joaquim Nabuco, 40 A Centro <br> Timbaúba - PE CEP 55870-000</p>
+                    </div>
+                    <div class="box-contatos">
+                        <h4>Siga-nos nas redes sociais</h4>
+                        <div class="box-sociais">
+                            <a class="btn btn-outline-primary mr-2"><i class="fab fa-instagram i-color"></i></a>
+                            <a class="btn btn-outline-primary"><i class="fab fa-facebook-f i-color"></i></a>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary botoes" href="https://api.whatsapp.com/send?phone=5581993031802&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20servi%C3%A7o..." target="_blank" role="button"><i class="fab fa-whatsapp mr-2"></i>Envie uma mensagem</a>
+                </div>
+                <div class="col-md-6 d-none d-md-block">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d831.5599738973785!2d-35.32074993967143!3d-7.510633806662864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ac79939aa16d7b%3A0x8fe0e85e44f97e8a!2zWiBQZcOnYXMgZSBTZXJ2acOnb3M!5e0!3m2!1spt-BR!2sbr!4v1647543951058!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Z Peças e Serviços CNPJ: 11.660.261/0001-54</p>
+                    <p><a href="sistema/index.php">Sistema Z Peças</a></p>
+                    <p class="dev">Site desenvolvido por: Geraldo Alves</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

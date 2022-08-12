@@ -50,6 +50,13 @@
 
     public function remover(){
       
+      $query = 'delete from 
+                tb_categorias 
+                WHERE id_categoria=?;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue(1, $this->categoria->__get('id_categoria'));
+      $stmt->execute();
+      
     }
 
     public function buscaCategoria(){

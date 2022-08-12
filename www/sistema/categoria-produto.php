@@ -12,6 +12,8 @@
     $msg = '<span class="text-light bg-success p-2 rounded">Categoria editada com sucesso!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'error-2') {
     $msg = '<span class="text-dark bg-warning p-2 rounded">Categoria já cadastrada!</span>';
+  } elseif (isset($_GET['res']) && $_GET['res'] == 'del'){
+    $msg = '<span class="text-light bg-success p-2 rounded">Categoria excluida com sucesso!</span>';
   }
 
 ?>
@@ -117,7 +119,7 @@
                 ?></td>
                 <td>
                   <button class="btn btn-outline-success" onclick="editarCategoria(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>')"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <a class="btn btn-outline-danger" href="#"><i class="fa-solid fa-trash"></i></a>
+                  <button class="btn btn-outline-danger" onclick="excluirCategoria(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>')"><i class="fa-solid fa-trash"></i></button>
                 </td>
               </tr>
             <?php } ?>

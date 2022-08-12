@@ -1,0 +1,336 @@
+/* Configurações gerais */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+/* Configurações cabeçalho */
+
+.gradient{
+    height: 500px;
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(29,78,136,1) 40%, rgba(0,69,255,1) 100%);
+    padding-top: 50px;
+}
+
+.capa h1 {
+    color: #fff;
+    font-size: 4em;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+}
+
+.capa h1::after{
+    content: '';
+    width: 150px;
+    height: 5px;
+    background-color: #fff;
+    margin-top: 15px;
+}
+
+.capa p {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.img-capa {
+    height: 100%;
+    padding-top: 40px;
+}
+
+/* Configurações Menu */
+
+.bg-light {
+    background-color: #fff!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #143A51;
+    font-weight: 500;
+}
+
+/* Seções */
+
+.secoes {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 3px solid #c4c4c4;
+}
+
+.secoes h2{
+    color: #143A51;
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.secoes h2::after{
+    content: '';
+    width: 150px;
+    height: 5px;
+    background-color: #143A51;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.secoes img {
+    box-shadow: 3px 2px 6px 0px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 3px 2px 6px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 2px 6px 0px rgba(0,0,0,0.6);
+}
+
+.secoes p {
+    font-size: 1em;
+    font-weight: 400;
+    color: #000;
+}
+
+#quem-somos p {
+    text-indent: 20px;
+}
+
+.secoes h3 {
+    color: #143A51;
+    font-size: 2em;
+}
+
+.secoes h4 {
+    color: #143A51;
+    font-size: 1.7em;
+}
+
+.i-color {
+    color: #143A51;
+    font-size: 1.3em;
+}
+
+.botoes {
+    width: 500px;
+    margin-top: 50px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #143A51;
+    border-color: #143A51;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    color: #143A51;
+    background-color: #e5e5e5;
+    border-color: #143A51;
+}
+
+.btn-outline-primary{
+    border-color: #143A51;
+}
+
+.btn-outline-primary:hover{
+    background-color: #e5e5e5;
+    border-color: #143A51;
+}
+
+#servicos h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+#contato {
+    border: none;
+}
+
+#contato .botoes{
+    margin-top: 30px;
+}
+
+#contato p {
+    font-weight: 500;
+}
+
+.box-contatos {
+    padding: 15px;
+}
+
+.box-contatos h4 {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #143A51;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.dev {
+    font-size: 0.7em;
+}
+
+
+
+/* Configurações Breakpoints */
+
+@media (max-width: 575.98px) {
+    .capa h1 {
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    .capa h1::after{
+        width: 100px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .capa p {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .gradient {
+        height: 400px;
+        padding-top: 100px;
+    }
+
+    .secoes h2 {
+        font-size: 2em;
+    }
+
+    .secoes h2::after{
+        width: 100px;
+        margin-top: 15px;
+    }
+
+    #quem-somos img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #produtos img {
+        width: 200px;
+        height: 200px;
+    }
+
+    #produtos p {
+        margin-bottom: 30px;
+    }
+
+    .botoes {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    #servicos h3 {
+        font-size: 1.2em;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #contato h4 {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #contato p {
+        text-align: center;
+    }
+
+    iframe {
+        margin-top: 30px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-contatos h4 {
+        margin-bottom: 5px;
+    }
+
+    .box-sociais {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .capa h1 {
+        font-size: 2.8em;
+        text-align: center;
+    }
+
+    .capa h1::after{
+        width: 120px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .capa p {
+        font-size: 1em;
+    }
+
+    .gradient {
+        height: 400px;
+        padding-top: 100px;
+    }
+
+    .botoes {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .capa h1 {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .capa p {
+        font-size: 1em;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .gradient {
+        height: 400px;
+        padding-top: 100px;
+    }
+
+    #quem-somos img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .botoes {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .capa h1 {
+        font-size: 3em;
+    }
+
+    .capa h1::after{
+        width: 140px;
+    }
+}
