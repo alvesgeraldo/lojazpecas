@@ -26,7 +26,8 @@
       
       $query = 'select 
                 id_categoria, nome_categoria, status_categoria 
-                from tb_categorias;';
+                from tb_categorias
+                order by nome_categoria asc;';
       $stmt = $this->conexao->prepare($query);
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +58,8 @@
         $query = 'select 
                 id_categoria, nome_categoria, status_categoria 
                 from tb_categorias 
-                where status_categoria = ?;';
+                where status_categoria = ?
+                order by nome_categoria asc;';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(1, $this->categoria->__get('status_categoria'));
         $stmt->execute();
