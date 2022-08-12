@@ -20,7 +20,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Sair</a>
+          <a class="nav-link" href="../index.html">Sair</a>
         </li>
       </ul>
     </div>
