@@ -14,10 +14,10 @@
 
       $query = 'insert into
                tb_categorias (nome_categoria, status_categoria) 
-               values (?, ?);';
+               values (:nome_categoria, :status_categoria);';
       $stmt = $this->conexao->prepare($query);
-      $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
-      $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
+      $stmt->bindValue('nome_categoria', $this->categoria->__get('nome_categoria'));
+      $stmt->bindValue('status_categoria', $this->categoria->__get('status_categoria'));
       $stmt->execute();
       
     }
@@ -39,12 +39,12 @@
 
       $query = 'update
                 tb_categorias SET 
-                nome_categoria=?, status_categoria=? 
-                WHERE id_categoria=?;';
+                nome_categoria= :nome_categoria, status_categoria= :status_categoria 
+                WHERE id_categoria = :id_categoria;';
       $stmt = $this->conexao->prepare($query);
-      $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
-      $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
-      $stmt->bindValue(3, $this->categoria->__get('id_categoria'));
+      $stmt->bindValue('nome_categoria', $this->categoria->__get('nome_categoria'));
+      $stmt->bindValue('status_categoria', $this->categoria->__get('status_categoria'));
+      $stmt->bindValue('id_categoria', $this->categoria->__get('id_categoria'));
       $stmt->execute();
       
     }
@@ -53,9 +53,9 @@
       
       $query = 'delete from 
                 tb_categorias 
-                WHERE id_categoria=?;';
+                WHERE id_categoria = :id_categoria;';
       $stmt = $this->conexao->prepare($query);
-      $stmt->bindValue(1, $this->categoria->__get('id_categoria'));
+      $stmt->bindValue('id_categoria', $this->categoria->__get('id_categoria'));
       $stmt->execute();
       
     }
@@ -66,20 +66,20 @@
         $query = 'select 
                 id_categoria, nome_categoria, status_categoria 
                 from tb_categorias 
-                where status_categoria = ?
+                where status_categoria = :status_categoria
                 order by nome_categoria asc;';
         $stmt = $this->conexao->prepare($query);
-        $stmt->bindValue(1, $this->categoria->__get('status_categoria'));
+        $stmt->bindValue('status_categoria', $this->categoria->__get('status_categoria'));
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
       } else {
         $query = 'select 
                   id_categoria, nome_categoria, status_categoria 
                   from tb_categorias 
-                  where nome_categoria = ? and status_categoria = ?;';
+                  where nome_categoria like :nome_categoria and status_categoria = :status_categoria;';
         $stmt = $this->conexao->prepare($query);
-        $stmt->bindValue(1, $this->categoria->__get('nome_categoria'));
-        $stmt->bindValue(2, $this->categoria->__get('status_categoria'));
+        $stmt->bindValue('nome_categoria', $this->categoria->__get('nome_categoria').'%');
+        $stmt->bindValue('status_categoria', $this->categoria->__get('status_categoria'));
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
