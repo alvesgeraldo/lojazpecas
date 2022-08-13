@@ -1,3 +1,4 @@
+<?php require './autenticacao-usuario.php' ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

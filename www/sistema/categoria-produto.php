@@ -1,5 +1,7 @@
 <?php
 
+  require './autenticacao-usuario.php';
+  
   $acao = isset($_GET['acao']) && $_GET['acao'] == 'buscaCategoria' ? $_GET['acao'] : 'recuperar';
   
   require 'script-categoria.php';
