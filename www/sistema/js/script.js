@@ -6,18 +6,18 @@ function off() {
   document.getElementById("overlay-adicionar").style.display = "none";
 }
 
-function editarCategoria(id, valueCategoria){
+function editarRegistro(id, value, title, destino){
   
   document.getElementById("overlay-adicionar").style.display = "block";
 
   let titulo = document.getElementById('titulo');
-  titulo.innerHTML = 'Editar categoria';
+  titulo.innerHTML = title;
 
   let btnCadastrar = document.getElementById('btn-cadastrar');
   btnCadastrar.innerHTML = 'Alterar';
 
   let formCategoria = document.getElementById('form-categoria');
-  formCategoria.action = 'script-categoria.php?acao=atualizar';
+  formCategoria.action = 'script-'+destino+'.php?acao=atualizar';
 
   let inputId = document.createElement('input');
   inputId.type = 'hidden';
@@ -25,20 +25,19 @@ function editarCategoria(id, valueCategoria){
   inputId.name = 'id-categoria';
 
   let nome = document.getElementById('nome-cadastro');
-  nome.value = valueCategoria;
+  nome.value = value;
   
   formCategoria.appendChild(inputId);
-  console.log(valueCategoria);
 
 }
 
-function excluirCategoria(id, valueCategoria){
+function excluirRegistro(id, value, destino){
 
-  let res = confirm('Deseja excluir a categoria '+valueCategoria+'?');
+  let res = confirm('Deseja excluir a categoria '+value+'?');
   
   if (res) {
 
-    location.href = 'script-categoria.php?acao=remover&id='+id;
+    location.href = 'script-'+destino+'.php?acao=remover&id='+id;
     
   }
 
