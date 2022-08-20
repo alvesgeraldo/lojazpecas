@@ -55,7 +55,7 @@
         </div>
         <div class="mt-2">
           <button class="btn btn-primary" type="submit">Buscar</button>
-          <a href="categoria-produto.php" class="btn btn-light">Limpar</a>
+          <a href="marca-produto.php" class="btn btn-light">Limpar</a>
         </div>
       </form>
     </div>
@@ -112,10 +112,14 @@
               <tr>
                 <th scope="row" id="marca_<?=$marca['id_marca']?>"><?= $marca['id_marca'] ?></th>
                 <td id="nome_marca_<?=$marca['id_marca']?>"><?= $marca['nome_marca'] ?></td>
-                <td id="status_marca_<?=$marca['id_marca']?>"><?php 
-                  $registro['status_marca'] == 1 ? 'Ativo' : 'Inativo';
-                  
-                ?></td>
+                <td id="status_marca_<?=$marca['id_marca']?>">
+                  <?php 
+                    if($marca['status_marca'] == 1){
+                      echo 'Ativo';
+                    } else {
+                      echo 'Inativo';
+                    } ?>
+                </td>
                 <td>
                   <button class="btn btn-outline-success my-1" onclick="editarRegistro(<?=$marca['id_marca']?>, '<?= $marca['nome_marca'] ?>', 'Editar marca', 'marca')"><i class="fa-solid fa-pen-to-square"></i></button>
                   <button class="btn btn-outline-danger" onclick="excluirRegistro(<?=$marca['id_marca']?>, '<?= $marca['nome_marca'] ?>', 'marca')"><i class="fa-solid fa-trash"></i></button>

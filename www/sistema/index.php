@@ -16,7 +16,7 @@
 <body class="text-center">
   
   <div class="container box-login">
-    <form action="valida-login.php" method="post" class="form-signin mx-auto mt-3" >
+    <form action="./valida-login.php" method="post" class="form-signin mx-auto mt-3" >
       <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
       <label for="usuario" class="sr-only">Nome de Usuário</label>
       <input type="text" placeholder="Nome de usuário" class="form-control" id="usuario" name="usuario" required autofocus>

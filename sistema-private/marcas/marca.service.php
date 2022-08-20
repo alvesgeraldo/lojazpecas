@@ -37,10 +37,27 @@
 
     public function atualizar(){
 
+      $query = 'update
+                tb_marcas SET 
+                nome_marca= :nome_marca, status_marca= :status_marca 
+                WHERE id_marca = :id_marca;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('nome_marca', $this->marca->__get('nome_marca'));
+      $stmt->bindValue('status_marca', $this->marca->__get('status_marca'));
+      $stmt->bindValue('id_marca', $this->marca->__get('id_marca'));
+      $stmt->execute();
+
     }
 
     public function remover(){
 
+      $query = 'delete from 
+                tb_marcas 
+                WHERE id_marca = :id_marca;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('id_marca', $this->marca->__get('id_marca'));
+      $stmt->execute();
+      
     }
 
     public function buscaMarca(){

@@ -22,7 +22,7 @@ function editarRegistro(id, value, title, destino){
   let inputId = document.createElement('input');
   inputId.type = 'hidden';
   inputId.value = id;
-  inputId.name = 'id-categoria';
+  inputId.name = 'id-'+destino;
 
   let nome = document.getElementById('nome-cadastro');
   nome.value = value;

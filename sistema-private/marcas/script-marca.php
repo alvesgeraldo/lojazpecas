@@ -9,33 +9,52 @@
   switch ($acao) {
     case 'cadastrar':
       
-      if($_POST['nome-categoria'] == '' || $_POST['status-categoria'] == ''){
+      if($_POST['nome-marca'] == '' || $_POST['status-marca'] == ''){
         header('location: marca-produto.php?res=error');
-      }
+      } else {
 
+        $conexao = new Conexao();
+        $marca = new Marca();
+        $marca->__set('nome_marca', $_POST['nome-marca']);
+        $marca->__set('status_marca', $_POST['status-marca']);
+
+        $marcaService = new MarcaService($conexao, $marca);
+        $marcas = $marcaService->buscaMarca();
+        
+        if(strtolower($_POST['nome-marca']) == strtolower($marcas[0]['nome_marca'])){
+          header('location: marca-produto.php?res=error-2');
+        } else {
+          $marcaService->cadastrar();
+
+          header('location: marca-produto.php?res=success');
+        }
+      }
+    break;
+
+    case 'atualizar':
+      
       $conexao = new Conexao();
       $marca = new Marca();
+      $marca->__set('id_marca', $_POST['id-marca']);
       $marca->__set('nome_marca', $_POST['nome-marca']);
       $marca->__set('status_marca', $_POST['status-marca']);
 
       $marcaService = new MarcaService($conexao, $marca);
-      $marcas = $marcaService->buscaMarca();
+      $marcaService->atualizar();
 
-      if(strtolower($_POST['nome-marca']) == strtolower($marcas[0]['nome_marca'])){
-        header('location: marca-produto.php?res=error-2');
-      } else {
-        $marcaService->cadastrar();
-
-        header('location: marca-produto.php?res=success');
-      }
-      break;
-
-    case 'atualizar':
-      echo 'Chegamos aqui atualizar';
+      header('location: marca-produto.php?res=edit');
       break;
 
     case 'remover':
-      echo 'Chegamos aqui remover';
+      
+      $conexao = new Conexao();
+      $marca = new Marca();
+      $marca->__set('id_marca', $_GET['id']);
+
+      $marcaService = new MarcaService($conexao, $marca);
+      $marcaService->remover();
+
+      header('location: marca-produto.php?res=del');
       break;
 
     case 'buscaMarca':
