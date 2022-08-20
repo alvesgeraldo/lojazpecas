@@ -7,9 +7,9 @@
   require 'script-produto.php';
 
   if (isset($_GET['res']) && $_GET['res'] == 'success') {
-    $msg = '<span class="text-light bg-success p-2 rounded">Categoria cadastrada com sucesso!</span>';
+    $msg = '<span class="text-light bg-success p-2 rounded">Produto cadastrado com sucesso!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'error') {
-    $msg = '<span class="text-light bg-danger p-2 rounded">Erro! Tente novamente preenchendo todos os campos!</span>';
+    $msg = '<span class="text-light bg-danger p-2 rounded">Erro! Preenchendo todos os campos obrigatórios(*)!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'edit'){
     $msg = '<span class="text-light bg-success p-2 rounded">Categoria editada com sucesso!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'error-2') {
@@ -78,7 +78,7 @@
         <div class="d-md-inline text-center"><strong><?= $msg ?></strong></div>
     </div>
 
-    <!-- Div overlay adicionar categorias -->
+    <!-- Div overlay adicionar produtos -->
 
     <div id="overlay-adicionar">
       <div class="container bg-secondary text-light rounded p-2 mt-5">
@@ -86,13 +86,13 @@
           <h5 id="titulo">Cadastrar novo produto</h5>
           <form id="form-produto" action="script-produto.php?acao=cadastrar" method="post">
             <div class="row">
-              <div class="col-md-8">
-                <label for="nome" class="form-label">Nome produto</label>
-                <input class="form-control" type="text" name="nome-produto" id="nome-cadastro">
-              </div>
               <div class="col-md-4">
-                <label for="cod_forn" class="form-label">Código Fornecedor</label>
-                <input type="text" name="cod-fornecedor" id="cod_forn" class="form-control">
+                <label for="cod_produto" class="form-label">*Código Produto</label>
+                <input type="text" name="cod-produto" id="cod_produto" class="form-control">
+              </div>
+              <div class="col-md-8">
+                <label for="nome" class="form-label">*Nome produto</label>
+                <input class="form-control" type="text" name="nome-produto" id="nome-cadastro">
               </div>
             </div>
 
@@ -112,8 +112,19 @@
                 </select>
               </div>
               <div class="col-md-4">
-                <label for="unidade" class="form-label">Unidade</label>
+                <label for="unidade" class="form-label">*Unidade</label>
                 <input type="text" name="unidade" id="unidade" class="form-control">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-8">
+                  <label for="fornecedor" class="form-label">Nome Fornecedor</label>
+                  <input type="text" name="nome-fornecedor" id="fornecedor" class="form-control">
+              </div>
+              <div class="col-md-4">
+                <label for="cod_forn" class="form-label">Código Fornecedor</label>
+                <input type="text" name="cod-fornecedor" id="cod_forn" class="form-control">
               </div>
             </div>
 
@@ -123,7 +134,7 @@
                   <input type="text" name="preco-custo" id="preco_custo" class="form-control">
               </div>
               <div class="col-md-3">
-                  <label for="preco_venda" class="form-label">Preço Venda</label>
+                  <label for="preco_venda" class="form-label">*Preço Venda</label>
                   <input type="text" name="preco-venda" id="preco_venda" class="form-control">
               </div>
               <div class="col-md-3">
@@ -141,12 +152,12 @@
                   <label for="estoque_minimo" class="form-label">Estoque Mínimo</label>
                   <input type="number" name="estoque-minimo" id="estoque_minimo" class="form-control">
               </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-9">
-                  <label for="fornecedor" class="form-label">Nome Fornecedor</label>
-                  <input type="text" name="nome-fornecedor" id="fornecedor" class="form-control">
+              <div class="col-md-3">
+                <label for="status_produto" class="form-label">Status</label>
+                <select id="status_produto" class="form-select" name="status-produto">
+                  <option value="1">Ativo</option>
+                  <option value="2">Inativo</option>
+                </select>
               </div>
             </div>
 
@@ -154,6 +165,7 @@
               <button id="btn-cadastrar" class="btn btn-primary" onclick="off()" type="submit">Salvar</button>
               <a class="btn btn-danger" onclick="off()" href="cadastro-produto.php">Voltar</a>
             </div>
+
           </form>
         </div>
       </div>
