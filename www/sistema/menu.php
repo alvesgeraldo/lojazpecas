@@ -16,7 +16,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="../sistema/categoria-produto.php">Categorias</a></li>
             <li><a class="dropdown-item" href="../sistema/marca-produto.php">Marcas</a></li>
-            <li><a class="dropdown-item" href="#">Produtos</a></li>
+            <li><a class="dropdown-item" href="../sistema/cadastro-produto.php">Produtos</a></li>
           </ul>
         </li>
         <li class="nav-item">
