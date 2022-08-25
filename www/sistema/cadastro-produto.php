@@ -197,8 +197,7 @@
                 <td id="preco_venda_<?=$produto['id_produto']?>"><?= number_format($produto['preco_venda'], 2, ',', '.') ?></td>
                 <td id="estoque_<?=$produto['estoque']?>"> <?=$produto['estoque']?> </td>
                 <td>
-                  <button class="btn btn-outline-dark my-1" onclick="visualizarRegistro(<?=$produto['id_produto']?>)"> <i class="fa-solid fa-eye"></i> </button>
-                  <button class="btn btn-outline-success my-1" onclick="editarRegistro(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>', 'Editar categoria', 'categoria')"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn btn-outline-success my-1" onclick="editarRegistroProduto(<?=$produto['id_produto']?>, '<?= $produto['nome_produto'] ?>', '<?= $produto['unidade_produto'] ?>', '<?= $produto['cod_prod_forn'] ?>', '<?= $produto['preco_custo'] ?>', '<?= $produto['preco_venda'] ?>', '<?= $produto['nome_fornecedor'] ?>', '<?= $produto['status_produto'] ?>', '<?= $produto['estoque'] ?>', '<?= $produto['estoque_minimo'] ?>', '<?= $produto['nome_categoria'] ?>', '<?= $produto['nome_marca'] ?>', 'Editar produto', 'produto')"><i class="fa-solid fa-pen-to-square"></i></button>
                   <button class="btn btn-outline-danger" onclick="excluirRegistro(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>', 'categoria')"><i class="fa-solid fa-trash"></i></button>
                 </td>
               </tr>

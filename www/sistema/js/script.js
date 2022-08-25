@@ -43,12 +43,9 @@ function excluirRegistro(id, value, destino){
 
 }
 
-function visualizarRegistro(id){
+function editarRegistroProduto(id, nomeProduto, un, codForn, custo, venda, forn, status, est, estMin, cat, mar, titulo, destino){
 
-  document.getElementById("overlay-adicionar").style.display = "block";
-
-  inputCodProduto = document.getElementById('cod_produto');
-  inputCodProduto.value = id;
+  
   
 
 }
