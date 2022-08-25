@@ -36,11 +36,48 @@
 
     }
 
-    public function recuperar(){
+    public function recuperar($limit, $offset){
+
+      $query = "select 
+                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
+                from tb_produtos as p 
+                left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
+                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) 
+                order by nome_produto asc
+                limit $limit offset $offset;";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    public function visualizarProduto(){
+
+      $query = "select 
+                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
+                from tb_produtos as p 
+                left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
+                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) where p.id_produto = :id_produto;";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('id_produto', $this->produto->__get('id_produto'));
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
     public function remover(){
+
+    }
+
+    public function totalRegistros(){
+
+      $query = 'select 
+                count(*) as total 
+                from tb_produtos
+                order by nome_produto asc;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
   }

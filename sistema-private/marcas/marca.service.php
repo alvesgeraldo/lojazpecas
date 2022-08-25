@@ -98,6 +98,19 @@
 
     }
 
+    public function recuperarMarcas(){
+
+      $query = "select 
+                id_marca, nome_marca 
+                from tb_marcas
+                where status_marca = 1
+                order by nome_marca asc;";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->execute();        
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
 
   }
 

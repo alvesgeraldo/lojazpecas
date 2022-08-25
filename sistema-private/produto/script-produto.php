@@ -3,6 +3,10 @@
   require '../../sistema-private/conexao.php';
   require '../../sistema-private/produto/produto.model.php';
   require '../../sistema-private/produto/produto.service.php';
+  require '../../sistema-private/categoria/categoria.model.php';
+  require '../../sistema-private/categoria/categoria.service.php';
+  require '../../sistema-private/marcas/marca.model.php';
+  require '../../sistema-private/marcas/marca.service.php';
 
   $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
@@ -11,10 +15,6 @@
       
       $conexao = new Conexao();
       $produto = new Produto();
-
-      echo '<pre>';
-      print_r($_POST);
-      echo '</pre>';
 
       if ($_POST['cod-produto'] == '' || $_POST['nome-produto'] == '' || $_POST['unidade'] == '' || $_POST['preco-venda'] == '') {
         header('location: cadastro-produto.php?res=error');
@@ -75,8 +75,40 @@
       echo 'Estamos aqui remover';
       break;
 
+    case 'eye':
+      $conexao = new Conexao();
+      $produto = new Produto();
+      $produto->__set('id_produto', $_GET['id']);
+
+      $produtoService = new ProdutoService($conexao, $produto);
+      $visualizarProduto = $produtoService->visualizarProduto();
+
+      break;
+
     default:
-      echo 'Estamos aqui recuperar';
+      
+      $conexao = new Conexao();
+      $produto = new Produto();
+
+      $produtoService = new ProdutoService($conexao, $produto);
+      $totalRegistros = $produtoService->totalRegistros();
+      $totalPaginas = ceil($totalRegistros[0]['total']/5);
+      $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+      $limit = 5;
+      $offset = ($pagina - 1) * $limit;
+      $produtos = $produtoService->recuperar($limit, $offset);
+
       break;
   }
+
+  $conexao = new Conexao();
+  $categoria = new Categoria();
+  $marca = new Marca();
+
+  $categoriaService = new CategoriaService($conexao, $categoria);
+  $categorias = $categoriaService->recuperarCategorias();
+
+  $marcaService = new MarcaService($conexao, $marca);
+  $marcas = $marcaService->recuperarMarcas();
+
 ?>

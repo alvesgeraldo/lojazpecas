@@ -43,4 +43,14 @@ function excluirRegistro(id, value, destino){
 
 }
 
+function visualizarRegistro(id){
+
+  document.getElementById("overlay-adicionar").style.display = "block";
+
+  inputCodProduto = document.getElementById('cod_produto');
+  inputCodProduto.value = id;
+  
+
+}
+
 

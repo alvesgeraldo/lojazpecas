@@ -98,6 +98,19 @@
 
     }
 
+    public function recuperarCategorias(){
+
+      $query = "select 
+                id_categoria, nome_categoria 
+                from tb_categorias
+                where status_categoria = 1
+                order by nome_categoria asc";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->execute();        
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
   }
 
 ?>

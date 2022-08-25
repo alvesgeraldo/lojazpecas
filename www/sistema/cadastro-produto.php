@@ -2,7 +2,7 @@
 
   require './autenticacao-usuario.php';
   
-  $acao = isset($_GET['acao']) && $_GET['acao'] == 'buscaCategoria' ? $_GET['acao'] : 'recuperar';
+  $acao = isset($_GET['acao']) ? $_GET['acao'] : 'recuperar';
   
   require 'script-produto.php';
 
@@ -48,8 +48,9 @@
           <div class="col-md-4">
             <label for="marca" class="form-label">Marca</label>
             <select class="form-select" name="marca-produto">
-              <option value="1">Levorin</option>
-              <option value="2">Pirelli</option>
+              <?php foreach ($marcas as $key => $marca) { ?>
+                <option value="<?= $marca['id_marca']?>"> <?= $marca['nome_marca'] ?></option>
+              <?php } ?>
             </select>
           </div>
         </div>
@@ -57,8 +58,9 @@
           <div class="col-md-4">
             <label for="categoria" class="form-label">Categoria</label>
             <select class="form-select" name="categoria-produto">
-              <option value="1">Pneus</option>
-              <option value="2">Câmara de Ar</option>
+              <?php foreach ($categorias as $key => $categoria) { ?>
+                <option value="<?= $categoria['id_categoria']?>"> <?= $categoria['nome_categoria'] ?></option>
+              <?php } ?>
             </select>
           </div>
           <div class="col-md-8">
@@ -100,15 +102,17 @@
               <div class="col-md-4">
                 <label for="marca" class="form-label">Marca</label>
                 <select id="marca" class="form-select" name="marca-produto">
-                  <option value="1">Levorin</option>
-                  <option value="2">Pirelli</option>
+                  <?php foreach ($marcas as $key => $marca) { ?>
+                    <option value="<?= $marca['id_marca']?>"> <?= $marca['nome_marca'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
               <div class="col-md-4">
                 <label for="categoria" class="form-label">Categoria</label>
                 <select id="categoria" class="form-select" name="categoria-produto">
-                  <option value="1">Pneus</option>
-                  <option value="2">Câmara de Ar</option>
+                  <?php foreach ($categorias as $key => $categoria) { ?>
+                    <option value="<?= $categoria['id_categoria']?>"> <?= $categoria['nome_categoria'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
               <div class="col-md-4">
@@ -190,15 +194,10 @@
               <tr>
                 <th scope="row" id="produto_<?=$produto['id_produto']?>"><?= $produto['id_produto'] ?></th>
                 <td id="nome_produto_<?=$produto['id_produto']?>"><?= $produto['nome_produto'] ?></td>
-                <td id="nome_produto_<?=$produto['id_produto']?>"><?= $produto['nome_produto'] ?></td>
-                <td id="status_produto_<?=$produto['id_produto']?>"><?php 
-                  if($produto['status_produto'] == 1){
-                    echo 'Ativo';
-                  } elseif ($produto['status_produto'] == 2){
-                    echo 'Inativo';
-                  }
-                ?></td>
+                <td id="preco_venda_<?=$produto['id_produto']?>"><?= number_format($produto['preco_venda'], 2, ',', '.') ?></td>
+                <td id="estoque_<?=$produto['estoque']?>"> <?=$produto['estoque']?> </td>
                 <td>
+                  <button class="btn btn-outline-dark my-1" onclick="visualizarRegistro(<?=$produto['id_produto']?>)"> <i class="fa-solid fa-eye"></i> </button>
                   <button class="btn btn-outline-success my-1" onclick="editarRegistro(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>', 'Editar categoria', 'categoria')"><i class="fa-solid fa-pen-to-square"></i></button>
                   <button class="btn btn-outline-danger" onclick="excluirRegistro(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>', 'categoria')"><i class="fa-solid fa-trash"></i></button>
                 </td>
