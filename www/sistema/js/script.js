@@ -43,48 +43,58 @@ function excluirRegistro(id, value, destino){
 
 }
 
-function editarRegistroProduto(id, nomeProduto, un, codForn, custo, venda, forn, status, est, estMin, cat, mar, idCat, idMar, titulo, destino){
+function editarRegistroProduto(id, nomeProduto, un, codForn, custo, venda, forn, status, est, estMin, cat, mar, idCat, idMar, title, destino){
 
   document.getElementById("overlay-adicionar").style.display = "block";
 
-  cod_produto = document.getElementById('cod_produto');
+  let cod_produto = document.getElementById('cod_produto');
   cod_produto.value = id;
+  cod_produto.setAttribute('readonly', 'readonly');
+  cod_produto.setAttribute('class', 'form-control-plaintext text-light');
 
-  nome_cadastro = document.getElementById('nome-cadastro');
+  let nome_cadastro = document.getElementById('nome-cadastro');
   nome_cadastro.value = nomeProduto;
 
-  marca = document.getElementById('option_marca');
+  let marca = document.getElementById('option_marca');
   marca.value = idMar;
   marca.innerHTML = mar;
 
-  categoria = document.getElementById('option_categoria');
+  let categoria = document.getElementById('option_categoria');
   categoria.value = idCat;
   categoria.innerHTML = cat;
 
-  unidade = document.getElementById('unidade');
+  let unidade = document.getElementById('unidade');
   unidade.value = un;
 
-  fornecedor = document.getElementById('fornecedor');
+  let fornecedor = document.getElementById('fornecedor');
   fornecedor.value = forn;
 
-  cod_forn = document.getElementById('cod_forn');
+  let cod_forn = document.getElementById('cod_forn');
   cod_forn.value = codForn;
 
-  preco_custo = document.getElementById('preco_custo');
+  let preco_custo = document.getElementById('preco_custo');
   preco_custo.value = parseFloat(custo).toLocaleString('pt-br', {minimumFractionDigits: 2});;
 
-  preco_venda = document.getElementById('preco_venda');
+  let preco_venda = document.getElementById('preco_venda');
   preco_venda.value = parseFloat(venda).toLocaleString('pt-br', {minimumFractionDigits: 2});;
 
-  estoque = document.getElementById('estoque');
+  let estoque = document.getElementById('estoque');
   estoque.value = est;
 
-  estoque_minimo = document.getElementById('estoque_minimo');
+  let estoque_minimo = document.getElementById('estoque_minimo');
   estoque_minimo.value = estMin;
 
-  status_produto = document.getElementById('status_produto');
+  let status_produto = document.getElementById('status_produto');
   status_produto.value = status;
   
+  let titulo = document.getElementById('titulo');
+  titulo.innerHTML = title;
+
+  let btnCadastrar = document.getElementById('btn-cadastrar');
+  btnCadastrar.innerHTML = 'Alterar';
+
+  let formProduto = document.getElementById('form-produto');
+  formProduto.action = 'script-'+destino+'.php?acao=atualizar';
 
 }
 

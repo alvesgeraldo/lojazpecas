@@ -9,13 +9,13 @@
   if (isset($_GET['res']) && $_GET['res'] == 'success') {
     $msg = '<span class="text-light bg-success p-2 rounded">Produto cadastrado com sucesso!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'error') {
-    $msg = '<span class="text-light bg-danger p-2 rounded">Erro! Preenchendo todos os campos obrigatórios(*)!</span>';
+    $msg = '<span class="text-light bg-danger p-2 rounded">Erro! Preencha todos os campos obrigatórios(*)!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'edit'){
-    $msg = '<span class="text-light bg-success p-2 rounded">Categoria editada com sucesso!</span>';
+    $msg = '<span class="text-light bg-success p-2 rounded">Produto editado com sucesso!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'error-2') {
-    $msg = '<span class="text-dark bg-warning p-2 rounded">Categoria já cadastrada!</span>';
+    $msg = '<span class="text-dark bg-warning p-2 rounded">Produto já cadastrado!</span>';
   } elseif (isset($_GET['res']) && $_GET['res'] == 'del'){
-    $msg = '<span class="text-light bg-success p-2 rounded">Categoria excluida com sucesso!</span>';
+    $msg = '<span class="text-light bg-success p-2 rounded">Produto excluido com sucesso!</span>';
   }
 
 ?>
@@ -165,7 +165,7 @@
 
             <div class="mt-2">
               <button id="btn-cadastrar" class="btn btn-primary" onclick="off()" type="submit">Salvar</button>
-              <a class="btn btn-danger" onclick="off()" >Voltar</a>
+              <a class="btn btn-danger" onclick="off()" href="cadastro-produto.php">Voltar</a>
             </div>
 
           </form>

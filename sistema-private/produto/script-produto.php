@@ -68,7 +68,28 @@
       break;
     
     case 'atualizar':
-      echo 'Estamos aqui atualizar';
+
+      $conexao = new Conexao();
+      $produto = new Produto();
+
+      $produto->__set('id_produto', $_POST['cod-produto']);
+      $produto->__set('nome_produto', $_POST['nome-produto']);
+      $produto->__set('fk_id_marcas', $_POST['marca-produto']);
+      $produto->__set('fk_id_categoria', $_POST['categoria-produto']);
+      $produto->__set('unidade_produto', $_POST['unidade']);
+      $produto->__set('cod_prod_forn', $_POST['cod-fornecedor']);
+      $produto->__set('nome_fornecedor', $_POST['nome-fornecedor']);
+      $produto->__set('preco_custo', str_replace(',','.', $_POST['preco-custo']));
+      $produto->__set('preco_venda', str_replace(',', '.', $_POST['preco-venda']));
+      $produto->__set('estoque', $_POST['estoque']);
+      $produto->__set('estoque_minimo', $_POST['estoque-minimo']);
+      $produto->__set('status_produto', $_POST['status-produto']);
+
+      $produtoService = new ProdutoService($conexao, $produto);
+      $produtoService->atualizar();
+
+      header('location: cadastro-produto.php?res=edit');
+
       break;
     
     case 'remover':
