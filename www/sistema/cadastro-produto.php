@@ -41,31 +41,27 @@
       <h5 class="text-light">Filtro de busca</h5>  
       <form action="cadastro-produto.php?acao=buscaCategoria" method="post">
         <div class="row text-light">
-          <div class="col-md-8">
+          <div class="col-md-6">
             <label for="nome" class="form-label">Nome Produto</label>
             <input class="form-control" type="text" name="nome-produto" id="nome">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label for="marca" class="form-label">Marca</label>
             <select class="form-select" name="marca-produto">
+                <option value=""></option>
               <?php foreach ($marcas as $key => $marca) { ?>
                 <option value="<?= $marca['id_marca']?>"> <?= $marca['nome_marca'] ?></option>
               <?php } ?>
             </select>
           </div>
-        </div>
-        <div class="row text-light">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label for="categoria" class="form-label">Categoria</label>
             <select class="form-select" name="categoria-produto">
+                <option value=""></option>
               <?php foreach ($categorias as $key => $categoria) { ?>
                 <option value="<?= $categoria['id_categoria']?>"> <?= $categoria['nome_categoria'] ?></option>
               <?php } ?>
             </select>
-          </div>
-          <div class="col-md-8">
-            <label for="fornecedor" class="form-label">Fornecedor</label>
-            <input class="form-control" type="text" name="fornecedor" id="fornecedor">
           </div>
         </div>
         <div class="mt-2">
@@ -102,6 +98,7 @@
               <div class="col-md-4">
                 <label for="marca" class="form-label">Marca</label>
                 <select id="marca" class="form-select" name="marca-produto">
+                    <option id="option_marca" value=""></option>
                   <?php foreach ($marcas as $key => $marca) { ?>
                     <option value="<?= $marca['id_marca']?>"> <?= $marca['nome_marca'] ?></option>
                   <?php } ?>
@@ -110,6 +107,7 @@
               <div class="col-md-4">
                 <label for="categoria" class="form-label">Categoria</label>
                 <select id="categoria" class="form-select" name="categoria-produto">
+                    <option id="option_categoria" value=""></option>
                   <?php foreach ($categorias as $key => $categoria) { ?>
                     <option value="<?= $categoria['id_categoria']?>"> <?= $categoria['nome_categoria'] ?></option>
                   <?php } ?>
@@ -167,7 +165,7 @@
 
             <div class="mt-2">
               <button id="btn-cadastrar" class="btn btn-primary" onclick="off()" type="submit">Salvar</button>
-              <a class="btn btn-danger" onclick="off()" href="cadastro-produto.php">Voltar</a>
+              <a class="btn btn-danger" onclick="off()" >Voltar</a>
             </div>
 
           </form>
@@ -197,7 +195,9 @@
                 <td id="preco_venda_<?=$produto['id_produto']?>"><?= number_format($produto['preco_venda'], 2, ',', '.') ?></td>
                 <td id="estoque_<?=$produto['estoque']?>"> <?=$produto['estoque']?> </td>
                 <td>
-                  <button class="btn btn-outline-success my-1" onclick="editarRegistroProduto(<?=$produto['id_produto']?>, '<?= $produto['nome_produto'] ?>', '<?= $produto['unidade_produto'] ?>', '<?= $produto['cod_prod_forn'] ?>', '<?= $produto['preco_custo'] ?>', '<?= $produto['preco_venda'] ?>', '<?= $produto['nome_fornecedor'] ?>', '<?= $produto['status_produto'] ?>', '<?= $produto['estoque'] ?>', '<?= $produto['estoque_minimo'] ?>', '<?= $produto['nome_categoria'] ?>', '<?= $produto['nome_marca'] ?>', 'Editar produto', 'produto')"><i class="fa-solid fa-pen-to-square"></i></button>
+                  
+                  <button class="btn btn-outline-success my-1" onclick="editarRegistroProduto(<?=$produto['id_produto']?>, '<?= $produto['nome_produto'] ?>', '<?= $produto['unidade_produto'] ?>', '<?= $produto['cod_prod_forn'] ?>', '<?= $produto['preco_custo'] ?>', '<?= $produto['preco_venda'] ?>', '<?= $produto['nome_fornecedor'] ?>', '<?= $produto['status_produto'] ?>', '<?= $produto['estoque'] ?>', '<?= $produto['estoque_minimo'] ?>', '<?= $produto['nome_categoria'] ?>', '<?= $produto['nome_marca'] ?>', '<?= $produto['fk_id_categoria'] ?>', '<?= $produto['fk_id_marcas'] ?>', 'Editar produto', 'produto')"><i class="fa-solid fa-pen-to-square"></i></button>
+                  
                   <button class="btn btn-outline-danger" onclick="excluirRegistro(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>', 'categoria')"><i class="fa-solid fa-trash"></i></button>
                 </td>
               </tr>

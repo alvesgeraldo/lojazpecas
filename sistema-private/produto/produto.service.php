@@ -39,7 +39,7 @@
     public function recuperar($limit, $offset){
 
       $query = "select 
-                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
+                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, p.fk_id_categoria, c.nome_categoria, p.fk_id_marcas, m.nome_marca 
                 from tb_produtos as p 
                 left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
                 left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) 
