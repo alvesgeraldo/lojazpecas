@@ -68,13 +68,14 @@
 
     }
 
-    public function visualizarProduto(){
+    public function buscaPorCodigo(){
 
       $query = "select 
                 p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
                 from tb_produtos as p 
                 left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
-                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) where p.id_produto = :id_produto;";
+                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) 
+                where p.id_produto = :id_produto;";
       $stmt = $this->conexao->prepare($query);
       $stmt->bindValue('id_produto', $this->produto->__get('id_produto'));
       $stmt->execute();
@@ -82,7 +83,59 @@
 
     }
 
+    public function buscaPorNome(){
+
+      $query = "select 
+                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
+                from tb_produtos as p 
+                left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
+                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) 
+                where p.nome_produto like :nome_produto;";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('nome_produto', $this->produto->__get('nome_produto').'%');
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    public function buscaPorMarca(){
+
+      $query = "select 
+                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
+                from tb_produtos as p 
+                left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
+                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) 
+                where p.fk_id_marcas = :fk_id_marcas;";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('fk_id_marcas', $this->produto->__get('fk_id_marcas'));
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    public function buscaPorCategoria(){
+
+      $query = "select 
+                p.nome_produto, p.unidade_produto, p.cod_prod_forn, p.preco_custo, p.preco_venda, p.nome_fornecedor, p.status_produto, p.estoque, p.estoque_minimo, p.id_produto, c.nome_categoria, m.nome_marca 
+                from tb_produtos as p 
+                left join tb_categorias as c on (p.fk_id_categoria = c.id_categoria) 
+                left join tb_marcas as m on (p.fk_id_marcas = m.id_marca) 
+                where p.fk_id_categoria = :fk_id_categoria;";
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('fk_id_categoria', $this->produto->__get('fk_id_categoria'));
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
     public function remover(){
+
+      $query = 'delete from 
+                tb_produtos 
+                WHERE id_produto = :id_produto;';
+      $stmt = $this->conexao->prepare($query);
+      $stmt->bindValue('id_produto', $this->produto->__get('id_produto'));
+      $stmt->execute();
 
     }
 

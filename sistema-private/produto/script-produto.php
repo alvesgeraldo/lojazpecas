@@ -93,17 +93,47 @@
       break;
     
     case 'remover':
-      echo 'Estamos aqui remover';
-      break;
-
-    case 'eye':
+      
       $conexao = new Conexao();
       $produto = new Produto();
       $produto->__set('id_produto', $_GET['id']);
 
       $produtoService = new ProdutoService($conexao, $produto);
-      $visualizarProduto = $produtoService->visualizarProduto();
+      $produtoService->remover();
 
+      header('location: cadastro-produto.php?res=del');
+      break;
+
+    case 'buscaProduto':
+
+      $conexao = new Conexao();
+      $produto = new Produto();
+
+      if ($_POST['cod-produto'] != '') {
+        
+        $produto->__set('id_produto', $_POST['cod-produto']);
+        $produtoService = new ProdutoService($conexao, $produto);
+        $produtos = $produtoService->buscaPorCodigo();
+
+      } elseif ($_POST['nome-produto'] != ''){
+        
+        $produto->__set('nome_produto', $_POST['nome-produto']);
+        $produtoService = new ProdutoService($conexao, $produto);
+        $produtos = $produtoService->buscaPorNome();
+
+      } elseif ($_POST['marca-produto'] != ''){
+
+        $produto->__set('fk_id_marcas', $_POST['marca-produto']);
+        $produtoService = new ProdutoService($conexao, $produto);
+        $produtos = $produtoService->buscaPorMarca();
+
+      } elseif ($_POST['categoria-produto'] != ''){
+
+        $produto->__set('fk_id_categoria', $_POST['categoria-produto']);
+        $produtoService = new ProdutoService($conexao, $produto);
+        $produtos = $produtoService->buscaPorCategoria();
+
+      }
       break;
 
     default:

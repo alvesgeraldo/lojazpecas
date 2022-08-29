@@ -39,13 +39,17 @@
     <!-- Div form busca -->
     <div class="container p-2 rounded bg-secondary">
       <h5 class="text-light">Filtro de busca</h5>  
-      <form action="cadastro-produto.php?acao=buscaCategoria" method="post">
+      <form action="cadastro-produto.php?acao=buscaProduto" method="post">
         <div class="row text-light">
-          <div class="col-md-6">
+          <div class="col-md-3">
+            <label for="cod-produto" class="form-label">Código Produto</label>
+            <input class="form-control" type="text" name="cod-produto" id="cod-produto">
+          </div>
+          <div class="col-md-5">
             <label for="nome" class="form-label">Nome Produto</label>
             <input class="form-control" type="text" name="nome-produto" id="nome">
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <label for="marca" class="form-label">Marca</label>
             <select class="form-select" name="marca-produto">
                 <option value=""></option>
@@ -54,7 +58,7 @@
               <?php } ?>
             </select>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <label for="categoria" class="form-label">Categoria</label>
             <select class="form-select" name="categoria-produto">
                 <option value=""></option>
@@ -198,7 +202,7 @@
                   
                   <button class="btn btn-outline-success my-1" onclick="editarRegistroProduto(<?=$produto['id_produto']?>, '<?= $produto['nome_produto'] ?>', '<?= $produto['unidade_produto'] ?>', '<?= $produto['cod_prod_forn'] ?>', '<?= $produto['preco_custo'] ?>', '<?= $produto['preco_venda'] ?>', '<?= $produto['nome_fornecedor'] ?>', '<?= $produto['status_produto'] ?>', '<?= $produto['estoque'] ?>', '<?= $produto['estoque_minimo'] ?>', '<?= $produto['nome_categoria'] ?>', '<?= $produto['nome_marca'] ?>', '<?= $produto['fk_id_categoria'] ?>', '<?= $produto['fk_id_marcas'] ?>', 'Editar produto', 'produto')"><i class="fa-solid fa-pen-to-square"></i></button>
                   
-                  <button class="btn btn-outline-danger" onclick="excluirRegistro(<?=$categoria['id_categoria']?>, '<?= $categoria['nome_categoria'] ?>', 'categoria')"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn btn-outline-danger" onclick="excluirRegistro(<?=$produto['id_produto']?>, '<?= $produto['nome_produto'] ?>', 'produto')"><i class="fa-solid fa-trash"></i></button>
                 </td>
               </tr>
             <?php } ?>

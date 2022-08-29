@@ -33,7 +33,7 @@ function editarRegistro(id, value, title, destino){
 
 function excluirRegistro(id, value, destino){
 
-  let res = confirm('Deseja excluir a categoria '+value+'?');
+  let res = confirm('Deseja excluir '+value+'?');
   
   if (res) {
 
