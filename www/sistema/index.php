@@ -7,7 +7,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 
   <?php require 'tag-head.php'; ?>
