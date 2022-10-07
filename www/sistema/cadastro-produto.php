@@ -143,10 +143,6 @@
                   <label for="preco_venda" class="form-label">*Preço Venda</label>
                   <input type="text" name="preco-venda" id="preco_venda" class="form-control">
               </div>
-              <div class="col-md-3">
-                <label for="margem_lucro" class="form-label">Margen de Lucro</label>
-                <input type="text" name="margem-lucro" id="margem_lucro" class="form-control">
-              </div>
             </div>
 
             <div class="row">
