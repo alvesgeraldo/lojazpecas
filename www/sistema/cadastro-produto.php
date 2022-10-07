@@ -88,10 +88,6 @@
           <h5 id="titulo">Cadastrar novo produto</h5>
           <form id="form-produto" action="script-produto.php?acao=cadastrar" method="post">
             <div class="row">
-              <div class="col-md-4">
-                <label for="cod_produto" class="form-label">*Código Produto</label>
-                <input type="text" name="cod-produto" id="cod_produto" class="form-control">
-              </div>
               <div class="col-md-8">
                 <label for="nome" class="form-label">*Nome produto</label>
                 <input class="form-control" type="text" name="nome-produto" id="nome-cadastro">
