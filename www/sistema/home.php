@@ -10,9 +10,11 @@
   
   <?php require 'menu.php'; ?>
   
-  <h1 class="display-4">Sistema Z Peças</h1>
+  <div style="height: 90vh;" class="container d-flex flex-column justify-content-center align-items-center">
+    <img src="../img/logo.jpg" width="150px" alt="Logo Z Peças">
+    <h1 class="display-4 border rounded bg-secondary text-white p-5">Sistema Z Peças</h1>
+  </div>
 
-  <?php require '../../sistema-private/script.php'; ?>
 
 </body>
 </html>
