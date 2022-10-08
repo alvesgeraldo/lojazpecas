@@ -13,10 +13,9 @@
     public function cadastrar(){
 
       $query = 'insert into
-                tb_produtos (id_produto, nome_produto, fk_id_marcas, fk_id_categoria, unidade_produto, nome_fornecedor, cod_prod_forn, preco_custo, preco_venda, estoque, estoque_minimo, status_produto) 
-                values (:id_produto, :nome_produto, :fk_id_marcas, :fk_id_categoria, :unidade_produto, :nome_fornecedor, :cod_prod_forn, :preco_custo, :preco_venda, :estoque, :estoque_minimo, :status_produto);';
+                tb_produtos (nome_produto, fk_id_marcas, fk_id_categoria, unidade_produto, nome_fornecedor, cod_prod_forn, preco_custo, preco_venda, estoque, estoque_minimo, status_produto) 
+                values (:nome_produto, :fk_id_marcas, :fk_id_categoria, :unidade_produto, :nome_fornecedor, :cod_prod_forn, :preco_custo, :preco_venda, :estoque, :estoque_minimo, :status_produto);';
       $stmt = $this->conexao->prepare($query);
-      $stmt->bindValue('id_produto', $this->produto->__get('id_produto'));
       $stmt->bindValue('nome_produto', $this->produto->__get('nome_produto'));
       $stmt->bindValue('fk_id_marcas', $this->produto->__get('fk_id_marcas'));
       $stmt->bindValue('fk_id_categoria', $this->produto->__get('fk_id_categoria'));

@@ -47,11 +47,6 @@ function editarRegistroProduto(id, nomeProduto, un, codForn, custo, venda, forn,
 
   document.getElementById("overlay-adicionar").style.display = "block";
 
-  let cod_produto = document.getElementById('cod_produto');
-  cod_produto.value = id;
-  cod_produto.setAttribute('readonly', 'readonly');
-  cod_produto.setAttribute('class', 'form-control-plaintext text-light');
-
   let nome_cadastro = document.getElementById('nome-cadastro');
   nome_cadastro.value = nomeProduto;
 
@@ -95,6 +90,13 @@ function editarRegistroProduto(id, nomeProduto, un, codForn, custo, venda, forn,
 
   let formProduto = document.getElementById('form-produto');
   formProduto.action = 'script-'+destino+'.php?acao=atualizar';
+
+  let inputId = document.createElement('input');
+  inputId.type = 'hidden';
+  inputId.value = id;
+  inputId.name = 'id-'+destino;
+
+  formProduto.appendChild(inputId);
 
 }
 

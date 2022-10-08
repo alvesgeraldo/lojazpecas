@@ -16,19 +16,18 @@
       $conexao = new Conexao();
       $produto = new Produto();
 
-      if ($_POST['cod-produto'] == '' || $_POST['nome-produto'] == '' || $_POST['unidade'] == '' || $_POST['preco-venda'] == '') {
+      if ($_POST['nome-produto'] == '' || $_POST['unidade'] == '' || $_POST['preco-venda'] == '') {
         header('location: cadastro-produto.php?res=error');
       } else {
         
-        $produto->__set('id_produto', $_POST['cod-produto']);
+        $produto->__set('nome_produto', $_POST['nome-produto']);
         
         $produtoService = new ProdutoService($conexao, $produto);
-        $res = $produtoService->buscaPorCodigo();
+        $res = $produtoService->buscaPorNome();
 
-        if ($res[0]['id_produto'] != '') {
+        if ($res[0]['nome_produto'] != '') {
           header('location: cadastro-produto.php?res=error-2');
         } else {
-          $produto->__set('id_produto', $_POST['cod-produto']);
           $produto->__set('nome_produto', $_POST['nome-produto']);
           $produto->__set('fk_id_marcas', $_POST['marca-produto']);
           $produto->__set('fk_id_categoria', $_POST['categoria-produto']);
@@ -82,7 +81,7 @@
       $conexao = new Conexao();
       $produto = new Produto();
 
-      $produto->__set('id_produto', $_POST['cod-produto']);
+      $produto->__set('id_produto', $_POST['id-produto']);
       $produto->__set('nome_produto', $_POST['nome-produto']);
       $produto->__set('fk_id_marcas', $_POST['marca-produto']);
       $produto->__set('fk_id_categoria', $_POST['categoria-produto']);
